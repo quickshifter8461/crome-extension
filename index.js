@@ -1,6 +1,7 @@
 let myWebsites = []
 const inputEl = document.getElementById("input-el")
 const saveEl = document.getElementById("input-btn")
+const tabEl = document.getElementById("tab-btn")
 const ulEl = document.getElementById("ul-el")
 const deleteEl = document.getElementById("delete-btn")
 const websitesFromLocalStorage = JSON.parse(localStorage.getItem("myWebsites"))
@@ -28,6 +29,14 @@ saveEl.addEventListener("click", function(){
   inputEl.value = ""
   localStorage.setItem("myWebsites", JSON.stringify(myWebsites))
   save(myWebsites)
+})
+
+tabEl.addEventListener("click", function(){
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+        myWebsites.push(tabs[0].url)
+        localStorage.setItem("myWebsites", JSON.stringify(myWebsites))
+        save(myWebsites)
+    })
 })
 
 deleteEl.addEventListener("dblclick", function(){
