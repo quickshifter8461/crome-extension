@@ -7,31 +7,32 @@ const websitesFromLocalStorage = JSON.parse(localStorage.getItem("myWebsites"))
 
 if (websitesFromLocalStorage) {
     myWebsites = websitesFromLocalStorage
-    saveWebsites()
+    save(myWebsites)
 }
 
-deleteEl.addEventListener("dblclick", function(){
-    localStorage.clear()
-    myWebsites = []
-    saveWebsites()
-})
-
-saveEl.addEventListener("click", function(){
-  myWebsites.push(inputEl.value)
-  inputEl.value = ""
-  localStorage.setItem("myWebsites", JSON.stringify(myWebsites))
-  saveWebsites()
-})
-
-function saveWebsites() {
+function save(websites) {
     let listItems =""
-    for (let i = 0; i < myWebsites.length; i++) {
+    for (let i = 0; i < websites.length; i++) {
         listItems += `
         <li class="mt-2">
-            <a class="text-success" href="${myWebsites[i]}">
-                ${myWebsites[i]}
+            <a class="text-success" href="${websites[i]}">
+                ${websites[i]}
             </a>
         </li>`
     }
     ulEl.innerHTML = listItems
 }
+
+saveEl.addEventListener("click", function(){
+  myWebsites.push(inputEl.value)
+  inputEl.value = ""
+  localStorage.setItem("myWebsites", JSON.stringify(myWebsites))
+  save(myWebsites)
+})
+
+deleteEl.addEventListener("dblclick", function(){
+    localStorage.clear()
+    myWebsites = []
+    save(myWebsites)
+})
+
