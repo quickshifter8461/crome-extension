@@ -1,6 +1,7 @@
 {
   "manifest_version": 3,
   "version": "1.4",
+  "id": "https://github.com/quickshifter8461",
   "description": "A website saver application",
   "name": "Website Saver",
   "action": {
