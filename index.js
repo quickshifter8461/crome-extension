@@ -16,7 +16,7 @@ function save(websites) {
     for (let i = 0; i < websites.length; i++) {
         listItems += `
         <li class="mt-2">
-            <a class="text-success" href="${websites[i]}">
+            <a class="text-success" target="_blank" href="${websites[i]}">
                 ${websites[i]}
             </a>
         </li>`
