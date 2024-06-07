@@ -1,7 +1,8 @@
 {
   "manifest_version": 3,
-  "version": "1.0",
-  "name": "Leads tracker",
+  "version": "1.4",
+  "description": "A website saver application",
+  "name": "Website Saver",
   "action": {
     "default_popup": "index.html",
     "default_icon": "icon.png"
